@@ -4,14 +4,7 @@
     <main class="flex-grow">
       <slot/>
     </main>
-    <footer class="flex px-16 justify-center border-t-2 bg-black h-32">
-    <div class="flex justify-between w-full items-center bg-transparent">
-      <g-link class="text-white">THE TECH DIRECTORY</g-link>
-      <g-link class="text-white">About</g-link>
-      <g-link class="text-white">Contact</g-link>
-      <g-link class="text-white">©TTD. 2020</g-link>
-    </div>
-  </footer>
+    <Footer />
   </div>
 </template>
 
@@ -34,10 +27,12 @@ body {
 
 <script>
 import Header from '~/components/Header.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
-    Header
+    Header,
+    Footer
   }
 }
 </script>
