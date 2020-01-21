@@ -1,9 +1,17 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      
-    </header>
-    <slot/>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-grow">
+      <slot/>
+    </main>
+    <footer class="flex px-16 justify-center border-t-2 bg-black h-32">
+    <div class="flex justify-between w-full items-center bg-transparent">
+      <g-link class="text-white">THE TECH DIRECTORY</g-link>
+      <g-link class="text-white">About</g-link>
+      <g-link class="text-white">Contact</g-link>
+      <g-link class="text-white">©TTD. 2020</g-link>
+    </div>
+  </footer>
   </div>
 </template>
 
@@ -22,23 +30,15 @@ body {
   padding:0;
   line-height: 1.5;
 }
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
-}
 </style>
+
+<script>
+import Header from '~/components/Header.vue'
+
+export default {
+  components: {
+    Header
+  }
+}
+</script>
+
