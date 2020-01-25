@@ -1,5 +1,5 @@
 <template>
-    <footer class="flex px-16 justify-center border-t-2 bg-black h-32">
+    <footer class="container px-8 flex px-16 justify-center border-t-2 bg-black h-32">
     <div class="flex justify-between w-full items-center bg-transparent">
       <g-link class="text-white">THE TECH DIRECTORY</g-link>
       <g-link class="text-white">About</g-link>

@@ -17,8 +17,35 @@ query {
 </static-query>
 
 <style>
+
+/* ADDED CIRCULAR-STD FONT FACES */
+
+@font-face {
+  font-family: 'Circular Std';
+  src: url('../assets/fonts/circular-std/circular-std-book.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Circular Std Bold';
+  src: url('../assets/fonts/circular-std/circular-std-bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Circular Std Black';
+  src: url('../assets/fonts/circular-std/circular-std-black.ttf');
+  font-weight: bolder;
+}
+
+@font-face {
+  font-family: 'Circular Std Medium';
+  src: url('../assets/fonts/circular-std/circular-std-medium.ttf');
+  font-weight: 500;
+}
+
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  @apply font-body;
   margin:0;
   padding:0;
   line-height: 1.5;
