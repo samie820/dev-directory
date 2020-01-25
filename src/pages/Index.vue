@@ -1,18 +1,54 @@
 <template>
   <Layout>
+    <section id="hero" class="mt-12 mb-16 lg:my-24 flex flex-col">
+      <span class="uppercase text-gray-600 font-bold text-xs">
+        the tech directory
+      </span>
+      <h1 class="text-3xl pt-12 pb-16 w-4/5 lg:w-2/5">
+        An extensive directory of people in tech all over the world building and growing awesome stuff.
+      </h1>
+      <div class="flex w-4/5 lg:w-2/5">
+        <input type="text" class="focus:outline-none text-base border-b-2 border-black flex-grow"
+        placeholder="Begin Your Search...">
+        <button class="bg-slightly-dark px-8 py-2 mx-4 rounded-sm">
+          <g-image alt="Search button" src="~/assets/images/Search-white.svg"></g-image>
+        </button>
+      </div>
+    </section>
+    <section id="recently-added" class="bg-gray-300 py-24">
+      <div class="w-full flex justify-between">
+        <h2 class="section-title">Top Trending</h2>
+        <p>View All</p>
+      </div>
+    </section>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Home'
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 .home-links a {
   margin-right: 1rem;
+}
+
+.section-title {
+  position: relative;
+
+  &::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    left: 10px;
+    height: 10px;
+    z-index: -1;
+  }
 }
 </style>
