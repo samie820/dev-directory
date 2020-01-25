@@ -18,7 +18,19 @@
     <section id="recently-added" class="bg-gray-300 py-24">
       <div class="w-full flex justify-between">
         <h2 class="section-title">Top Trending</h2>
-        <p>View All</p>
+        <p class="flex flex-row items-center">View All
+          <span class="ml-4">
+            <g-image src="~/assets/images/Arrow-right.svg"></g-image>
+          </span>
+        </p>
+      </div>
+      <div class="cards mt-16 grid grid-cols-3 gap-10">
+        <div class="py-20"></div>
+        <div class="py-20"></div>
+        <div class="py-20"></div>
+        <div class="py-20"></div>
+        <div class="py-20"></div>
+        <div class="py-20"></div>
       </div>
     </section>
   </Layout>
@@ -39,6 +51,7 @@ export default {
 
 .section-title {
   position: relative;
+  z-index: 2;
 
   &::before{
     content: '';
@@ -47,8 +60,15 @@ export default {
     background-color: white;
     width: 100%;
     left: 10px;
-    height: 10px;
+    height: 50%;
     z-index: -1;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
+}
+
+.cards > div{
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  border-radius: 4px;
 }
 </style>
