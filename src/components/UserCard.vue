@@ -18,7 +18,7 @@
 
     <div class="flex w-full justify-end">
         <button class="text-xs bg-black right-0 bottom-0 hover:bg-white text-white hover:text-black font-bold py-2 px-4">
-            <g-link>View Profile</g-link>
+            <g-link :to="`/users/${user.id}`">View Profile</g-link>
         </button>
     </div>
   </div>
