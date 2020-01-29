@@ -23,19 +23,82 @@
       </div>
     </section>
     <section id="recently-added" class="bg-gray-300 py-24 w-full">
-      <div class="w-full flex justify-between">
+      <div class="w-full flex justify-between px-8">
         <h2 class="section-title">Top Trending</h2>
         <p>View All</p>
+      </div>
+      <div class="w-full flex flex-wrap justify-around py-4">
+        <UserCard v-for="user in users" v-bind:key="user.id" v-bind:user="user" />
       </div>
     </section>
   </Layout>
 </template>
 
 <script>
+import UserCard from '~/components/UserCard.vue';
 export default {
+  components: {
+    UserCard,
+  },
   metaInfo: {
     title: 'Home'
-  }
+  },
+
+  data() {
+    return {
+      users: [
+        {
+        id: 1,
+        name: 'Nelson Nelson Atonwu',
+        location: 'Lagos, Nigeria',
+        currentRole: 'Software Engineer',
+        currentCompany: 'Interswitch',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
+      },
+        {
+        id: 1,
+        name: 'Nelson Nelson Atonwu',
+        location: 'Lagos, Nigeria',
+        currentRole: 'Software Engineer',
+        currentCompany: 'Interswitch',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
+      },
+        {
+        id: 1,
+        name: 'Nelson Nelson Atonwu',
+        location: 'Lagos, Nigeria',
+        currentRole: 'Software Engineer',
+        currentCompany: 'Interswitch',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
+      },
+        {
+        id: 1,
+        name: 'Nelson Nelson Atonwu',
+        location: 'Lagos, Nigeria',
+        currentRole: 'Software Engineer',
+        currentCompany: 'Interswitch',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
+      },
+        {
+        id: 1,
+        name: 'Nelson Nelson Atonwu',
+        location: 'Lagos, Nigeria',
+        currentRole: 'Software Engineer',
+        currentCompany: 'Interswitch',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
+      },
+        {
+        id: 1,
+        name: 'Nelson Nelson Atonwu',
+        location: 'Lagos, Nigeria',
+        currentRole: 'Software Engineer',
+        currentCompany: 'Interswitch',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
+      },
+      
+      ]
+    }
+  },
 }
 </script>
 
