@@ -36,6 +36,8 @@
 
 <script>
 import UserCard from '~/components/UserCard.vue';
+import data from '@/data/users.json'
+
 export default {
   components: {
     UserCard,
@@ -46,57 +48,7 @@ export default {
 
   data() {
     return {
-      users: [
-        {
-        id: 1,
-        name: 'Nelson Nelson Atonwu',
-        location: 'Lagos, Nigeria',
-        currentRole: 'Software Engineer',
-        currentCompany: 'Interswitch',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
-      },
-        {
-        id: 2,
-        name: 'Nelson Nelson Atonwu',
-        location: 'Lagos, Nigeria',
-        currentRole: 'Software Engineer',
-        currentCompany: 'Interswitch',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
-      },
-        {
-        id: 3,
-        name: 'Nelson Nelson Atonwu',
-        location: 'Lagos, Nigeria',
-        currentRole: 'Software Engineer',
-        currentCompany: 'Interswitch',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
-      },
-        {
-        id: 4,
-        name: 'Nelson Nelson Atonwu',
-        location: 'Lagos, Nigeria',
-        currentRole: 'Software Engineer',
-        currentCompany: 'Interswitch',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
-      },
-        {
-        id: 5,
-        name: 'Nelson Nelson Atonwu',
-        location: 'Lagos, Nigeria',
-        currentRole: 'Software Engineer',
-        currentCompany: 'Interswitch',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
-      },
-        {
-        id: 6,
-        name: 'Nelson Nelson Atonwu',
-        location: 'Lagos, Nigeria',
-        currentRole: 'Software Engineer',
-        currentCompany: 'Interswitch',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
-      },
-      
-      ]
+      users: data.users,
     }
   },
 }
