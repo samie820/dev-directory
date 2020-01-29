@@ -1,19 +1,25 @@
 <template>
-  <div class="card w-full md:w-1/3 lg:w-1/4 my-4 mx-2 bg-white flex flex-col rounded-sm">
-    <div class="flex w-full justify-between px-8 py-4">
+  <div class="card w-full md:w-1/3 lg:w-1/4 mt-4 mx-2 bg-white flex flex-col rounded-sm justify-between">
+    <div class="flex w-full justify-between px-6 py-4">
         <g-image class="avatar w-1/4" alt="User Avatar" :src="userProfile" />
         <div class="user-attribute ml-2 w-3/4">
             <h5>{{ user.name }}</h5>
             <span>{{ user.location }} </span>
         </div>
     </div>
-    <div class="text-lg flex my-2 px-8 flex-col">
+    <div class="text-lg flex my-2 px-6 flex-col">
         <h4>{{ user.currentRole }} </h4>
         <h4>{{ user.currentCompany }} </h4>
     </div>
 
-    <div class="px-8 my-2 text-xs text-gray-600">
+    <div class="px-6 my-2 text-xs text-gray-600">
         <span>{{ user.bio }}</span>
+    </div>
+
+    <div class="flex w-full justify-end">
+        <button class="text-xs bg-black right-0 bottom-0 hover:bg-white text-white hover:text-black font-bold py-2 px-4">
+            <g-link>View Profile</g-link>
+        </button>
     </div>
   </div>
 </template>

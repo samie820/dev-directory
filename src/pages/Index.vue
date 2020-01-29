@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <section id="hero" class="mt-12 mb-16 lg:my-24 flex flex-col">
+    <section id="hero" class="mt-12 mb-16 lg:my-24 flex flex-col container mx-auto">
       <span class="uppercase text-gray-600 font-bold text-xs">
         the tech directory
       </span>
@@ -56,7 +56,7 @@ export default {
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
       },
         {
-        id: 1,
+        id: 2,
         name: 'Nelson Nelson Atonwu',
         location: 'Lagos, Nigeria',
         currentRole: 'Software Engineer',
@@ -64,7 +64,7 @@ export default {
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
       },
         {
-        id: 1,
+        id: 3,
         name: 'Nelson Nelson Atonwu',
         location: 'Lagos, Nigeria',
         currentRole: 'Software Engineer',
@@ -72,7 +72,7 @@ export default {
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
       },
         {
-        id: 1,
+        id: 4,
         name: 'Nelson Nelson Atonwu',
         location: 'Lagos, Nigeria',
         currentRole: 'Software Engineer',
@@ -80,7 +80,7 @@ export default {
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
       },
         {
-        id: 1,
+        id: 5,
         name: 'Nelson Nelson Atonwu',
         location: 'Lagos, Nigeria',
         currentRole: 'Software Engineer',
@@ -88,7 +88,7 @@ export default {
         bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.'
       },
         {
-        id: 1,
+        id: 6,
         name: 'Nelson Nelson Atonwu',
         location: 'Lagos, Nigeria',
         currentRole: 'Software Engineer',
