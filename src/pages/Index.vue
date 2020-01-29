@@ -4,18 +4,25 @@
       <span class="uppercase text-gray-600 font-bold text-xs">
         the tech directory
       </span>
-      <h1 class="text-3xl pt-12 pb-16 w-4/5 lg:w-2/5">
-        An extensive directory of people in tech all over the world building and growing awesome stuff.
-      </h1>
-      <div class="flex w-4/5 lg:w-2/5">
-        <input type="text" class="focus:outline-none text-base border-b-2 border-black flex-grow"
-        placeholder="Begin Your Search...">
-        <button class="bg-slightly-dark px-8 py-2 mx-4 rounded-sm">
-          <g-image alt="Search button" src="~/assets/images/Search-white.svg"></g-image>
-        </button>
+      <div class="flex justify-between w-full">
+        <div class="md:w-3/6 lg:w-2/5 sm:full">
+            <h1 class="text-3xl pt-12 pb-16">
+            An extensive directory of people in tech all over the world building and growing awesome stuff.
+            </h1>
+              <div class="flex">
+                <input type="text" class="focus:outline-none text-base border-b-2 border-black flex-grow"
+                placeholder="Begin Your Search...">
+                <button class="bg-slightly-dark px-8 py-2 mx-4 rounded-sm">
+                <g-image alt="Search button" src="~/assets/images/Search-white.svg"></g-image>
+              </button>
+            </div>
+        </div>
+        <div class="banner flex md:w-3/6 lg:3/5">
+          <g-image class="w-full" alt="Search Icon" src="~/assets/images/dev-banner.svg" />
+        </div>
       </div>
     </section>
-    <section id="recently-added" class="bg-gray-300 py-24">
+    <section id="recently-added" class="bg-gray-300 py-24 w-full">
       <div class="w-full flex justify-between">
         <h2 class="section-title">Top Trending</h2>
         <p>View All</p>
@@ -50,5 +57,11 @@ export default {
     height: 10px;
     z-index: -1;
   }
+}
+
+@media screen and (max-width: 640px) {
+.banner {
+  display: none;
+}  
 }
 </style>
