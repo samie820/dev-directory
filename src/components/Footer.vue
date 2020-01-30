@@ -1,5 +1,5 @@
 <template>
-    <footer class="container px-8 flex justify-center border-t-2 bg-black h-32">
+    <footer class="w-full sm:container mx-auto px-8 flex justify-center border-t-2 bg-black h-32">
     <div class="flex justify-between w-full items-center bg-transparent">
       <g-link class="text-white flex flex-col text-sm uppercase">
         <span>the</span>

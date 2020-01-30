@@ -1,5 +1,5 @@
 <template>
-    <header class="header container px-8">
+    <header class="header w-full sm:container mx-auto px-8">
         <nav class="flex items-center justify-between flex-wrap py-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <g-image alt="Tech Directory Icon" src="~/assets/images/Logo.svg" />

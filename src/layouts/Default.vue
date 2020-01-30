@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-col min-h-screen items-center">
-    <Header class="mx-auto" />
-    <main class="flex-grow mx-auto">
-      <slot/>
-    </main>
+  <div class="flex flex-col min-h-screen">
+    <Header />
+    <transition name="fade" appear>
+      <main class="flex-grow">
+        <slot />
+      </main>
+    </transition>
     <Footer />
   </div>
 </template>
@@ -54,6 +56,14 @@ body {
 main > *{
   @apply px-8;
   @extends .container;
+}
+
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-enter {
+  opacity: 0;
 }
 </style>
 
