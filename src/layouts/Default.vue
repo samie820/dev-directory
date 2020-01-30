@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col min-h-screen">
-    <Header />
-    <main class="flex-grow container">
+  <div class="flex flex-col min-h-screen items-center">
+    <Header class="mx-auto" />
+    <main class="flex-grow mx-auto">
       <slot/>
     </main>
     <Footer />
@@ -53,6 +53,7 @@ body {
 
 main > *{
   @apply px-8;
+  @extends .container;
 }
 </style>
 

@@ -24,22 +24,22 @@
           </span>
         </p>
       </div>
-      <div class="cards mt-16 grid grid-cols-3 gap-10">
-        <div class="py-20"></div>
-        <div class="py-20"></div>
-        <div class="py-20"></div>
-        <div class="py-20"></div>
-        <div class="py-20"></div>
-        <div class="py-20"></div>
+      <div class="cards mt-16 grid grid-col-2 lg:grid-cols-3 gap-10">
+        <user-card></user-card>
+        <user-card></user-card>
       </div>
     </section>
   </Layout>
 </template>
 
 <script>
+import UserCard from "~/components/UserCard.vue"
 export default {
   metaInfo: {
     title: 'Home'
+  },
+  components: {
+    UserCard
   }
 }
 </script>
