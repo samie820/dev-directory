@@ -17,7 +17,7 @@
               </button>
             </div>
         </div>
-        <div class="banner flex md:w-3/6 lg:3/5">
+        <div class="banner flex hidden lg:block md:w-3/6 lg:3/5">
           <g-image class="w-full" alt="Search Icon" src="~/assets/images/dev-banner.svg" />
         </div>
       </div>
@@ -32,10 +32,6 @@
         </p>
       </div>
       <div class="cards mt-16 grid grid-col-2 lg:grid-cols-3 gap-10">
-        <user-card></user-card>
-        <user-card></user-card>
-      </div>
-      <div class="w-full flex flex-wrap justify-around py-4">
         <UserCard v-for="user in users" v-bind:key="user.id" v-bind:user="user" />
       </div>
     </section>
