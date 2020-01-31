@@ -18,13 +18,14 @@
 
     <div class="flex w-full justify-end">
         <button class="text-xs bg-black right-0 bottom-0 hover:bg-white text-white hover:text-black font-bold py-2 px-4">
-            <g-link :to="{ path: `/users/${user.slug}`, params: { slug: 'user.slug' } }">View Profile</g-link>
+            <g-link :to="{ path: `/users/${user.slug}`, params: { slug: 'userSlug' } }">View Profile</g-link>
         </button>
     </div>
   </div>
 </template>
 
 <script>
+import { slugify } from '@/utils/generateSlug'
 export default {
  props: {
      user: {
@@ -35,6 +36,9 @@ export default {
  computed: {
      userProfile(){
          return this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${this.user.name}&background=000000&color=fff&size=256&bold=true&rounded=true`
+     },
+     userSlug() {
+         return slugify(this.user.name);
      }
  }
 }
