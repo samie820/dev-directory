@@ -17,7 +17,7 @@
               </button>
             </div>
         </div>
-        <div class="banner flex md:w-3/6 lg:3/5">
+        <div class="banner flex hidden lg:block md:w-3/6 lg:3/5">
           <g-image class="w-full" alt="Search Icon" src="~/assets/images/dev-banner.svg" />
         </div>
       </div>
@@ -25,9 +25,13 @@
     <section id="recently-added" class="bg-gray-300 py-24 w-full">
       <div class="w-full flex justify-between px-8">
         <h2 class="section-title">Top Trending</h2>
-        <p>View All</p>
+        <p class="flex flex-row items-center">View All
+          <span class="ml-4">
+            <g-image src="~/assets/images/Arrow-right.svg"></g-image>
+          </span>
+        </p>
       </div>
-      <div class="w-full flex flex-wrap justify-around py-4">
+      <div class="cards mt-16 grid grid-col-2 lg:grid-cols-3 gap-10">
         <UserCard v-for="user in users" v-bind:key="user.id" v-bind:user="user" />
       </div>
     </section>
@@ -61,6 +65,7 @@ export default {
 
 .section-title {
   position: relative;
+  z-index: 2;
 
   &::before{
     content: '';
@@ -69,14 +74,20 @@ export default {
     background-color: white;
     width: 100%;
     left: 10px;
-    height: 10px;
+    height: 50%;
     z-index: -1;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
 }
 
+.cards > div{
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  border-radius: 4px;
+}
 @media screen and (max-width: 640px) {
 .banner {
   display: none;
-}  
+}
 }
 </style>

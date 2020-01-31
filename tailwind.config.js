@@ -7,7 +7,10 @@ module.exports = {
     extend: {
       colors: {
         'slightly-dark': '#333333'
-      }
+      },
+      fontFamily: {
+        medium: ['Circular Std Medium', 'sans-serif']
+      },
     }
   },
   variants: {},

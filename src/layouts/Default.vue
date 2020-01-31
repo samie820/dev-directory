@@ -55,6 +55,7 @@ body {
 
 main > *{
   @apply px-8;
+  @extends .container;
 }
 
 .fade-enter-active {
