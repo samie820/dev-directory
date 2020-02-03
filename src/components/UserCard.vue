@@ -18,15 +18,14 @@
              <p class="text-gray-500 text-base mt-3 mb-6">{{user.bio}}</p>
         </div>
         <div class="card-footer absolute w-1/3 bg-black bottom-0 right-0 rounded-br flex">
-        <g-link :to="'/users/'+user.id" class="text-white capitalize text-sm font-light flex-grow text-center py-4">View Profile</g-link>
-            <!-- <a href="#" class="text-white capitalize text-sm font-light flex-grow text-center py-4">view profile</a> -->
+            <g-link class="text-white capitalize text-sm font-light flex-grow text-center py-4" :to="{ path: `/users/${slug}`, params: { slug: 'slug' } }">View Profile</g-link>
         </div>
     </div>
 </template>
 
 <script>
     import AvatarImage from "./AvatarImage"
-
+    import { slugify } from '@/utils/generateSlug'
     export default {
         name: "UserCard",
         components: {
@@ -39,8 +38,11 @@
             }
         },
         computed: {
+            slug(){
+                return slugify(this.user.name)
+            },
             userProfile(){
-                return this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${this.user.name}&background=000000&color=fff&size=256&bold=true&rounded=true`
+                return this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${this.user.name}&background=000000&color=fff&size=256&bold=true`
             },
             userFirstName(){
                 return this.user.name.split(" ")[0]
@@ -68,5 +70,4 @@
     background-color: white;
     border-radius: 4px;
 }
-
 </style>
