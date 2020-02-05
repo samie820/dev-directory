@@ -45,7 +45,6 @@
                           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem dolore ut, ex nisi autem error id amet velit est expedita saepe? Eius, labore exercitationem fugit magni dolores minus numquam delectus?
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique perferendis magni, suscipit, aut, eum cum labore eveniet quas consectetur iste excepturi molestiae facilis? A nesciunt tenetur dicta atque autem laboriosam.
                       </p>
-
                       <a href="#" target="_blank" class="text-blue-500">
                           View Project
                           <span class="mx-4">

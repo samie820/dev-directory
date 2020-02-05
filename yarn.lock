@@ -694,6 +694,13 @@
     sort-package-json "^1.15.0"
     update-notifier "^3.0.1"
 
+"@gridsome/transformer-json@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@gridsome/transformer-json/-/transformer-json-0.2.1.tgz#76989b964ff5a13e7f64e1e59bcfca80c8bc0114"
+  integrity sha512-W/pFbjq+K3ftUK4aDa8zuqHq7jGSpDCUyvbH++m+5HMwTbe3eB2FLC7x2guGXzpw/jwHO1ukkZExecsMkAAibw==
+  dependencies:
+    json-parse-better-errors "^1.0.2"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"

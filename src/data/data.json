@@ -1,0 +1,34 @@
+{
+    "1": {
+        "id": 1,
+        "username": "Zhap",
+        "name": "Zhap Nelson-Atuonwu",
+        "location": "Abuja, Nigeria",
+        "currentRole": "Armed Robber Salary Collector",
+        "currentCompany": "Interswitch",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.",
+        "isVerified": true,
+        "selectedWorks": [{
+            "projectTitle": "Title Lagbaja",
+            "projectImageUrl": "",
+            "projectDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.",
+            "projectLink": "https://linkedin.com"
+        }]
+    },
+    "2": {
+        "id": 2,
+        "username": "Kezi",
+        "name": "Kezisochukwu Nelson-Atuonwu",
+        "location": "Abuja, Nigeria",
+        "currentRole": "Armed Robber Salary Collector",
+        "currentCompany": "Interswitch",
+        "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.",
+        "isVerified": true,
+        "selectedWorks": [{
+            "projectTitle": "Title Lagbaja",
+            "projectImageUrl": "",
+            "projectDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.",
+            "projectLink": "https://linkedin.com"
+        }]
+    }
+}

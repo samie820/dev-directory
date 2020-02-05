@@ -1,0 +1,18 @@
+{
+    "id":1,
+    "username": "ajebobaba",
+    "name":"Sammy Omoleth",
+    "location":"Arab Money",
+    "currentRole":"Armed Robber Salary Collector",
+    "currentCompany":"Moodus",
+    "bio":"Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.",
+    "isVerified": true,
+    "selectedWorks": [
+        {
+            "projectTitle": "",
+            "projectImageUrl": "",
+            "projectDescription": "",
+            "projectLink": ""
+        }
+    ]
+}
