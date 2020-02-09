@@ -36,46 +36,54 @@
       <section id="works" class="px-20 lg:px-40 pb-24 lg:pb-40 bg-gray-200">
           <p class="uppercase text-gray-500 ">SELECTED WORKS</p>
           <div id="all-works" class="flex flex-row my-10">
-              <div class="flex flex-col flex-grow work">
-                  <div class="bg-white work-image p-10 w-full relative">
-                      <g-image src="~/assets/images/Sample.jpg" class="object-cover h-full"></g-image>
-                  </div>
-                  <div class="my-16 pl-10 border-l-8 rounded-md border-gray-500 w-full py-5">
-                      <p class="mb-10">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem dolore ut, ex nisi autem error id amet velit est expedita saepe? Eius, labore exercitationem fugit magni dolores minus numquam delectus?
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique perferendis magni, suscipit, aut, eum cum labore eveniet quas consectetur iste excepturi molestiae facilis? A nesciunt tenetur dicta atque autem laboriosam.
-                      </p>
-                      <a href="#" target="_blank" class="text-blue-500">
-                          View Project
-                          <span class="mx-4">
-                              <i class="fas fa-arrow-right"></i>
-                          </span>
-                      </a>
-                  </div>
-              </div>
+              <work-card v-for="edge in $page.Works.edges" :work="edge.node" :key="edge.node.id"></work-card>
           </div>
       </section>
   </Layout>
 </template>
 
-<script>
-import AvatarImage from "../../components/AvatarImage"
-export default {
-    components: {
-        AvatarImage
+<page-query>
+query($username: String!) {
+  Works: allWorks(filter: {username: {eq: $username}}){
+    edges {
+      node {
+        description, id, imageUrl, link, user {
+          firstName, lastName, location
+        }
+      }
     }
+  }
+}
+</page-query>
+
+<script>
+import AvatarImage from "~/components/AvatarImage"
+import WorkCard from "~/components/WorkCard"
+
+export default {
+    data() {
+        return {
+            username: ""
+        }
+    },
+    components: {
+        AvatarImage, WorkCard
+    },
+    mounted(){
+        this.username = this.$route.params.slug
+        this.$context.username = this.$route.params.slug
+        console.log(this.$context)
+    },
+    created(){
+        this.$context.username = this.$route.params.slug
+    },
+    beforeCreate(){
+        this.$context.username = this.$route.params.slug
+    }
+    // computed: {
+    //     username(){
+    //         return this.$route.params.slug
+    //     }
+    // }
 }
 </script>
-
-<style lang="scss">
-.work-image{
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
-    height: 400px;
-    position: relative;
-
-    &>img {
-        height: 100% !important;
-    }
-}
-</style>

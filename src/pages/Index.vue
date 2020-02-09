@@ -32,11 +32,23 @@
         </p>
       </div>
       <div class="cards mt-16 grid grid-col-2 lg:grid-cols-3 gap-10">
-        <UserCard v-for="user in users" v-bind:key="user.id" v-bind:user="user" />
+        <user-card v-for="edge in $page.Users.edges" v-bind:key="edge.node.id" v-bind:user="edge.node" />
       </div>
     </section>
   </Layout>
 </template>
+
+<page-query>
+  query {
+    Users:allUsers {
+      edges {
+        node {
+          firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username
+        }
+      }
+    }
+}
+</page-query>
 
 <script>
 import UserCard from '~/components/UserCard.vue';

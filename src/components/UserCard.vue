@@ -5,8 +5,8 @@
                 <avatar-image :image-url="userProfile" :is-verified="user.isVerified"></avatar-image>
             </div>
             <div class="bio flex-col flex ml-4">
-                <span class="text-gray-600 text-base">{{userFirstName}}</span>
-                <span class="text-gray-600 text-base">{{userMiddleName + " " + userLastName}}</span>
+                <span class="text-gray-600 text-base">{{user.firsName}}</span>
+                <span class="text-gray-600 text-base">{{user.lastName}}</span>
                 <span class="text-xs text-black location">{{user.location}}</span>
             </div>
         </div>
@@ -18,7 +18,7 @@
              <p class="text-gray-500 text-base mt-3 mb-6">{{user.bio}}</p>
         </div>
         <div class="card-footer absolute w-1/3 bg-black bottom-0 right-0 rounded-br flex">
-            <g-link class="text-white capitalize text-sm font-light flex-grow text-center py-4" :to="{ path: `/users/${slug}`, params: { slug: 'slug' } }">View Profile</g-link>
+            <g-link class="text-white capitalize text-sm font-light flex-grow text-center py-4" :to="{ path: `/users/${user.username}`, params: { slug: 'slug' } }">View Profile</g-link>
         </div>
     </div>
 </template>
@@ -38,26 +38,8 @@
             }
         },
         computed: {
-            slug(){
-                return slugify(this.user.name)
-            },
             userProfile(){
-                return this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${this.user.name}&background=000000&color=fff&size=256&bold=true`
-            },
-            userFirstName(){
-                return this.user.name.split(" ")[0]
-            },
-            userMiddleName(){
-                if (this.user.name.split(" ").length > 2) {
-                    return this.user.name.split(" ")[1]
-                }
-                return ""
-            },
-            userLastName(){
-                if (this.user.name.split(" ").length >= 2) {
-                    return this.user.name.split(" ")[this.user.name.split(" ").length - 1]
-                }
-                return ""
+                return this.user.avatar ? this.user.avatar : `https://ui-avatars.com/api/?name=${this.user.firstName}&background=000000&color=fff&size=256&bold=true`
             }
         }
     }

@@ -1,17 +1,96 @@
-import data from "./src/data/data.json"
+const fs = require("fs")
+require("dotenv").config()
+
+// Get the contents of the data.json
+const DATA_FILE_PATH = process.env.DATA_FILE_PATH
+const data = JSON.parse(fs.readFileSync(DATA_FILE_PATH).toLocaleString())
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
 // Learn more: https://gridsome.org/docs/server-api/
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-import "gridsome"
 module.exports = function (api) {
-  api.loadSource(async ({ addCollection, addSchemaTypes, schema, addSchemaResolver }) => {
-    data.
+  api.loadSource(async ({ addCollection, addSchemaResolvers }) => {
+    const usersCollection = addCollection('Users')
+    const worksCollection = addCollection('Works')
+
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        const user = data[key];
+
+        // Add nodes to user GraphQL collection
+        usersCollection.addNode({
+          id: user.id,
+          username: user.username,
+          name: user.name,
+          location: user.location,
+          currentRole: user.currentRole,
+          currentCompany: user.currentCompany,
+          bio: user.bio,
+          isVerified: user.isVerified,
+          selectedWorks: user.selectedWorks
+        })
+
+        // Add works to work GraphQL collection
+        worksCollection.addReference('user', 'Users')
+        for (const work of user.selectedWorks) {
+          worksCollection.addNode({
+            title: work.projectTitle,
+            imageUrl: work.projectImageUrl,
+            description: work.projectDescription,
+            link: work.projectLink,
+            user: user.id,
+            username: user.username
+          })
+        }
+      }
+    }
+
+    addSchemaResolvers({
+      Users: {
+        firstName: {
+          type: 'String',
+          resolve({ name }){
+            return `${name.split(' ')[0]}`
+          }
+        },
+        lastName: {
+          type: 'String',
+          resolve({name}) {
+            const names = name.split(' ')
+            return `${names.length < 2 ? "" : names[names.length - 1]}`
+          }
+        }
+      }
+    })
   })
 
-  api.createPages(({ createPage }) => {
+  api.createPages(async ({ graphql, createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
+
+    // FIxed user pages 404 issue
+    // By generating user pages individually
+    const {data} = await graphql(`
+    query {
+      Users:allUsers {
+        edges {
+          node {
+            firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username
+          }
+        }
+      }
+  }
+    `)
+
+    data.Users.edges.forEach(({ node }) => {
+      createPage({
+        path: `/users/${node.username}`,
+        component: `./src/templates/Users.vue`,
+        context: {
+          username: node.username,
+        }
+      })
+    })
   })
 }
