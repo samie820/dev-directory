@@ -89,6 +89,7 @@ module.exports = function (api) {
         component: `./src/templates/Users.vue`,
         context: {
           username: node.username,
+          id: node.id
         }
       })
     })

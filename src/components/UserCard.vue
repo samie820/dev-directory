@@ -18,7 +18,7 @@
              <p class="text-gray-500 text-base mt-3 mb-6">{{user.bio}}</p>
         </div>
         <div class="card-footer absolute w-1/3 bg-black bottom-0 right-0 rounded-br flex">
-            <g-link class="text-white capitalize text-sm font-light flex-grow text-center py-4" :to="{ path: `/users/${user.username}`, params: { slug: 'slug' } }">View Profile</g-link>
+            <g-link class="text-white capitalize text-sm font-light flex-grow text-center py-4" :to="{ path: `/users/${user.username}`, params: { username: 'user.username' } }">View Profile</g-link>
         </div>
     </div>
 </template>

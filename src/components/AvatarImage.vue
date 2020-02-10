@@ -50,14 +50,14 @@ export default {
             required: false
         },
         Height: {
-            type: Number,
+            type: String,
             required: false,
-            default: 56
+            default: "56"
         },
         Width: {
-            type: Number,
+            type: String,
             required: false,
-            default: 84
+            default: "84"
         },
         IsVerified: {
             type: Boolean,
