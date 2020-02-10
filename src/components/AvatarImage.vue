@@ -61,7 +61,7 @@ export default {
         },
         IsVerified: {
             type: Boolean,
-            reuired: false,
+            required: false,
             default: false
         }
     }
