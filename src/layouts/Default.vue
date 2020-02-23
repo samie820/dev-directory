@@ -2,7 +2,7 @@
   <div class="flex flex-col min-h-screen">
     <Header />
     <transition name="fade" appear>
-      <main class="flex-grow">
+      <main :class="['flex-grow', classes ]">
         <slot />
       </main>
     </transition>
@@ -75,6 +75,9 @@ export default {
   components: {
     Header,
     Footer
+  },
+  props: {
+    classes: String
   }
 }
 </script>

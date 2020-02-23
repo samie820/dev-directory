@@ -5,7 +5,7 @@
                 <avatar-image :image-url="userProfile" :is-verified="user.isVerified"></avatar-image>
             </div>
             <div class="bio flex-col flex ml-4">
-                <span class="text-gray-600 text-base">{{user.firsName}}</span>
+                <span class="text-gray-600 text-base">{{user.firstName}}</span>
                 <span class="text-gray-600 text-base">{{user.lastName}}</span>
                 <span class="text-xs text-black location">{{user.location}}</span>
             </div>
