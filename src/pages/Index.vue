@@ -52,7 +52,6 @@
 
 <script>
 import UserCard from '~/components/UserCard.vue';
-import data from '@/data/users.json'
 
 export default {
   components: {
@@ -64,7 +63,6 @@ export default {
 
   data() {
     return {
-      users: data.users,
     }
   },
 }

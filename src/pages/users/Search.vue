@@ -2,7 +2,7 @@
     <Layout classes="flex pb-10 min-h-full overflow-hidden">
         <div class="min-h-full grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
             <div class="flex flex-col flex-grow relative lg:justify-center w-full items-start">
-                <input type="text" placeholder="Begin your search here..." class="focus:outline-none border-0 text-3xl">
+                <input type="text" @input="handleSearch" v-model="query" placeholder="Begin your search here..." class="focus:outline-none border-0 text-3xl" />
 
                 <div class="options gap-6 grid-cols-4 lg:grid-cols-3 mt-10 lg:mt-20 grid w-full">
                     <category-radio v-for="(category, index) in categories"
@@ -12,21 +12,16 @@
             </div>
             <div class="bg-gray-200 col-span-2 flex flex-grow flex-col rounded-md search-results p-10 lg:p-16 overflow-y-auto">
 
-                <!-- SORT BETWEEN GRID AND LISTS -->
-                <!-- <div class="w-1/4 md:w-1/6 lg:w-1/12 flex flex-row justify-between ml-auto mb-16">
-                    <i class="fas fa-list text-2xl"></i>
-                    <i class="fas fa-th text-2xl"></i>
-                </div> -->
                 <div class="results grid-cols-2 md:grid-cols-3 grid gap-10 row-gap-10">
-                    <div class="search-result relative" v-for="item in [1,2,3,4,5,6,7,8,9]" :key="item">
+                    <div class="search-result relative" v-for="edge in users" v-bind:key="edge.node.id">
                         <div class="bg-white p-6 text-black" style="box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);">
-                            <h2 class="text-xl text-gray-500">Nelson</h2>
-                            <h2 class="text-xl text-gray-500">Nelson-Atuonwu</h2>
-                            <span class="text-sm">Lagos, Nigeria</span>
-                            <h2 class="text-lg mt-6">Software Engineer</h2>
-                            <h2 class="text-lg underline">Interswitch</h2>
+                            <h2 class="text-xl text-gray-500">{{ edge.node.firstName }}</h2>
+                            <h2 class="text-xl text-gray-500">{{ edge.node.lastName }}</h2>
+                            <span class="text-sm">{{ edge.node.location }}</span>
+                            <h2 class="text-lg mt-6">{{ edge.node.currentRole }}</h2>
+                            <h2 class="text-lg underline">{{ edge.node.currentCompany }}</h2>
                         </div>
-                        <g-link to="/" class="absolute h-12 w-12 bg-black rounded-full flex justify-center items-center text-white top-0 search-navigator" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);">
+                        <g-link to="/" class="absolute h-12 w-12 bg-black rounded-full flex justify-center items-center text-white top-0 search-navigator" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);" :to="{ path: `/users/${edge.node.username}`, params: { username: 'edge.node.username' } }">
                             <i class="fas fa-chevron-right"></i>
                         </g-link>
                     </div>
@@ -36,24 +31,74 @@
     </Layout>
 </template>
 
+
+<page-query>
+  query {
+    Users:allUsers {
+      edges {
+        node {
+          firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username
+        }
+      }
+    }
+}
+</page-query>
+
 <script>
-import CategoryRadio from "~/components/CategoryRadio"
+import * as JsSearch from 'js-search'; 
+import CategoryRadio from "~/components/CategoryRadio";
 
 export default {
     name: 'search',
     components: {
         CategoryRadio
     },
+    mounted(){
+        const searchTerm = this.$route.query.q;
+        this.filterUsersBySearch(searchTerm);
+    },
     data(){
         return {
             categories: ['All', 'Designers', 'Developers', 'Product Managers'],
-            query: '',
-            currentCategory: ''
+            query: this.$route.query.q || '',
+            currentCategory: '',
+            users: [],
+        }
+    },
+    methods: {
+        handleSearch(evt) {
+            this.query = evt.target.value;
+            this.$router.push({ path: this.$route.path, query: {
+                q: evt.target.value
+            } })
+        },
+        filterUsersByCategory() {
+            // add a category field to the data
+        },
+        filterUsersBySearch(query) {
+            const users = this.$page.Users.edges || [];
+            if(!query) {
+                return this.users = users;
+            }
+            const search = this.setupSearch(users, ['firstName', 'lastName', 'location', 'currentRole', 'currentCompany'], 'id')
+            const filteredUsers = search.search(query);
+            this.users = filteredUsers;
+        },
+        setupSearch(documents = [], indexes = [], uniqueField) {
+            const search = new JsSearch.Search(['node', uniqueField]);
+
+            // remove this strategy for more relevant results
+            search.indexStrategy = new JsSearch.AllSubstringsIndexStrategy();
+            indexes.forEach(indexTerm => {
+                search.addIndex(['node', indexTerm]);
+            })
+            search.addDocuments(documents);
+            return search;
         }
     },
     watch: {
-        '$route.query.q': function (query) {
-
+        '$route.query.q': function(val) {
+            this.filterUsersBySearch(val)
         },
         'currentCategory': function (val) {
             const self = this
