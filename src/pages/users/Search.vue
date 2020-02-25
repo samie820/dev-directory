@@ -21,7 +21,7 @@
                             <h2 class="text-lg mt-6">{{ edge.node.currentRole }}</h2>
                             <h2 class="text-lg underline">{{ edge.node.currentCompany }}</h2>
                         </div>
-                        <g-link to="/" class="absolute h-12 w-12 bg-black rounded-full flex justify-center items-center text-white top-0 search-navigator" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);" :to="{ path: `/users/${edge.node.username}`, params: { username: 'edge.node.username' } }">
+                        <g-link class="absolute h-12 w-12 bg-black rounded-full flex justify-center items-center text-white top-0 search-navigator" style="box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);" :to="{ path: `/users/${edge.node.username}`, params: { username: 'edge.node.username' } }">
                             <i class="fas fa-chevron-right"></i>
                         </g-link>
                     </div>
