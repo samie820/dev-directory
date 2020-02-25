@@ -1,9 +1,9 @@
 <template>
     <header class="header w-full sm:container mx-auto px-8">
         <nav class="flex items-center justify-between flex-wrap py-6">
-            <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <g-link :to="{ path: `/` }" class="flex items-center flex-shrink-0 text-white mr-6">
                 <g-image alt="Tech Directory Icon" src="~/assets/images/Logo.svg" />
-            </div>
+            </g-link>
             <div class="flex lg:hidden flex-row items-center justify-center">
                 <g-link class="mr-8 focus:outline-none" :to="{ path: `/users/search` }">
                     <g-image alt="Search Icon" src="~/assets/images/Search.svg" />
