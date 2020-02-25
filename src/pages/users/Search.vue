@@ -63,6 +63,7 @@ export default {
             query: this.$route.query.q || '',
             currentCategory: '',
             users: [],
+            searchHandler: null,
         }
     },
     methods: {
@@ -80,19 +81,24 @@ export default {
             if(!query) {
                 return this.users = users;
             }
-            const search = this.setupSearch(users, ['firstName', 'lastName', 'location', 'currentRole', 'currentCompany'], 'id')
-            const filteredUsers = search.search(query);
-            this.users = filteredUsers;
+
+            if(!this.searchHandler) {
+                const search = this.setupSearch(users, ['firstName', 'lastName', 'location', 'currentRole', 'currentCompany'], 'id')
+                const filteredUsers = search.search(query);
+                return this.users = filteredUsers;
+            }
+            const filteredUsers = this.searchHandler.search(query);
+            return this.users = filteredUsers;
         },
         setupSearch(documents = [], indexes = [], uniqueField) {
             const search = new JsSearch.Search(['node', uniqueField]);
-
             // remove this strategy for more relevant results
             search.indexStrategy = new JsSearch.AllSubstringsIndexStrategy();
             indexes.forEach(indexTerm => {
                 search.addIndex(['node', indexTerm]);
             })
             search.addDocuments(documents);
+            this.searchHandler = search;
             return search;
         }
     },
