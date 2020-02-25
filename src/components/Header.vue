@@ -5,9 +5,9 @@
                 <g-image alt="Tech Directory Icon" src="~/assets/images/Logo.svg" />
             </div>
             <div class="flex lg:hidden flex-row items-center justify-center">
-                <button class="mr-8 focus:outline-none">
+                <g-link class="mr-8 focus:outline-none" :to="{ path: `/users/search` }">
                     <g-image alt="Search Icon" src="~/assets/images/Search.svg" />
-                </button>
+                </g-link>
                 
                 <button
                     class="flex items-center px-3 py-2 border rounded text-back-200 border-black hover:text-gray-400 hover:border-gray-400">
@@ -33,10 +33,10 @@
                     </g-link>
                 </div>
                 <div class="text-sm flex items-center">
-                    <button>
+                    <g-link :to="{ path: '/users/search' }">
                         <g-image class="h-17 w-17 mt-4 block lg:mt-0" alt="Search Icon"
                             src="~/assets/images/Search.svg" />
-                    </button>
+                    </g-link>
                 </div>
             </div>
         </nav>

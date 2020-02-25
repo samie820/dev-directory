@@ -10,11 +10,13 @@
             An extensive directory of people in tech all over the world building and growing awesome stuff.
             </h1>
               <div class="flex">
-                <input type="text" class="focus:outline-none text-base border-b-2 border-black flex-grow"
-                placeholder="Begin Your Search...">
-                <button class="bg-slightly-dark px-8 py-2 mx-4 rounded-sm">
-                <g-image alt="Search button" src="~/assets/images/Search-white.svg"></g-image>
-              </button>
+                <form @submit='handleSearch' class="flex w-full">
+                  <input type="text" class="focus:outline-none text-base border-b-2 border-black flex-grow"
+                  placeholder="Begin Your Search..." v-model="searchTerm">
+                  <button :disabled="searchTerm === ''" @click="handleSearch" class="bg-slightly-dark px-8 py-2 mx-4 rounded-sm">
+                    <g-image alt="Search button" src="~/assets/images/Search-white.svg"></g-image>
+                  </button>
+                </form>
             </div>
         </div>
         <div class="banner flex hidden lg:block md:w-3/6 lg:3/5">
@@ -63,8 +65,18 @@ export default {
 
   data() {
     return {
+      searchTerm: '',
     }
   },
+  methods: {
+    handleSearch(evt) {
+      evt.preventDefault();
+      if(this.searchTerm === '') return;
+        this.$router.push({ path: '/users/search', query: {
+            q: this.searchTerm
+        } })
+    }
+  }
 }
 </script>
 
