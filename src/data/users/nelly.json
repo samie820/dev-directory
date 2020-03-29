@@ -7,6 +7,13 @@
     "currentCompany":"Interswitch",
     "bio":"Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenat.",
     "isVerified": true,
+    "category": "Product Manager",
+    "social": {
+        "facebooK": "nelson.atuonwu",
+        "twitter": "blvckcoder",
+        "linkedIn": "nelson.atuonwu",
+        "github": "kunoacc"
+    },
     "selectedWorks": [
         {
             "projectTitle": "Title Lagbaja",

@@ -4,6 +4,7 @@ require("dotenv").config()
 // Get the contents of the data.json
 const DATA_FILE_PATH = process.env.DATA_FILE_PATH
 const data = JSON.parse(fs.readFileSync(DATA_FILE_PATH).toLocaleString())
+// console.log(data)
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
 // Learn more: https://gridsome.org/docs/server-api/
@@ -29,7 +30,9 @@ module.exports = function (api) {
           currentCompany: user.currentCompany,
           bio: user.bio,
           isVerified: user.isVerified,
-          selectedWorks: user.selectedWorks
+          selectedWorks: user.selectedWorks,
+          category: user.category,
+          social: user.social
         })
 
         // Add works to work GraphQL collection
@@ -76,7 +79,9 @@ module.exports = function (api) {
       Users:allUsers {
         edges {
           node {
-            firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username
+            firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username, category, social {
+              twitter, linkedIn, github
+            }
           }
         }
       }

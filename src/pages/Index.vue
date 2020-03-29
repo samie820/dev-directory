@@ -20,21 +20,23 @@
             </div>
         </div>
         <div class="banner flex hidden lg:block md:w-3/6 lg:3/5">
-          <g-image class="w-full" alt="Search Icon" src="~/assets/images/dev-banner.svg" />
+          <g-image class="w-full" alt="Search Icon" src="~/assets/images/header-img.svg" />
         </div>
       </div>
     </section>
     <section id="recently-added" class="bg-gray-300 py-24 w-full">
-      <div class="w-full flex justify-between px-8">
-        <h2 class="section-title">Top Trending</h2>
-        <p class="flex flex-row items-center">View All
+      <div class="container">
+        <div class="w-full flex justify-between px-8">
+        <h2 class="section-title">Recently Added</h2>
+        <g-link :to="{path: '/users/search'}" class="flex flex-row items-center">View All
           <span class="ml-4">
             <g-image src="~/assets/images/Arrow-right.svg"></g-image>
           </span>
-        </p>
+        </g-link>
       </div>
       <div class="cards mt-16 grid grid-col-2 lg:grid-cols-3 gap-10">
         <user-card v-for="edge in $page.Users.edges" v-bind:key="edge.node.id" v-bind:user="edge.node" />
+      </div>
       </div>
     </section>
   </Layout>

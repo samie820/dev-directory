@@ -17,7 +17,7 @@
             <span class="mx-4">nelsonatuonwu.me</span>
         </a>
         <div id="social-media" class="flex flex-row text-3xl mx-auto lg:mx-0 w-3/5 lg:w-1/5 flex justify-between mt-12">
-            <a href="#">
+            <a :href="`https://facebook.com/${$page.user.social && $page.user.social.facebook}`" v-if="$page.user.social?.facebook">
                 <i class="fab fa-facebook-square"></i>
             </a>
             <a href="#">

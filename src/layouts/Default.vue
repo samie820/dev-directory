@@ -65,6 +65,10 @@ main > *{
 .fade-enter {
   opacity: 0;
 }
+
+.container{
+  @apply mx-auto;
+}
 </style>
 
 <script>
