@@ -6,7 +6,7 @@
         <slot />
       </main>
     </transition>
-    <Footer />
+    <Footer :is-footer-fixed="isFooterFixed" />
   </div>
 </template>
 
@@ -81,7 +81,8 @@ export default {
     Footer
   },
   props: {
-    classes: String
+    classes: String,
+    isFooterFixed: Boolean
   }
 }
 </script>

@@ -11,6 +11,15 @@ module.exports = {
       fontFamily: {
         medium: ['Circular Std Medium', 'sans-serif']
       },
+      height: {
+        '80': '20rem',
+        '100': '25rem',
+        '128': '32rem',
+      },
+      inset: {
+        '5': '1.25rem',
+        '10': '2.5rem',
+      }
     }
   },
   variants: {},
