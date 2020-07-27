@@ -19,7 +19,7 @@
                 </form>
             </div>
         </div>
-        <div class="banner flex hidden lg:block md:w-3/6 lg:3/5">
+        <div class="banner hidden lg:block md:w-3/6 lg:3/5">
           <g-image class="w-full" alt="Search Icon" src="~/assets/images/header-img.svg" />
         </div>
       </div>
@@ -34,8 +34,8 @@
           </span>
         </g-link>
       </div>
-      <div class="cards mt-16 grid grid-col-2 lg:grid-cols-3 gap-10">
-        <user-card v-for="edge in $page.Users.edges" v-bind:key="edge.node.id" v-bind:user="edge.node" />
+      <div class="cards mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <user-card v-for="edge in $page.Users.edges.slice($page.Users.edges.length - 4, $page.Users.edges.length)" v-bind:key="edge.node.id" v-bind:user="edge.node" />
       </div>
       </div>
     </section>

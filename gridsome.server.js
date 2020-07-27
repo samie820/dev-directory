@@ -32,7 +32,8 @@ module.exports = function (api) {
           isVerified: user.isVerified,
           selectedWorks: user.selectedWorks,
           category: user.category,
-          social: user.social
+          social: user.social,
+          skills: user.skills
         })
 
         // Add works to work GraphQL collection
@@ -79,8 +80,8 @@ module.exports = function (api) {
       Users:allUsers {
         edges {
           node {
-            firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username, category, social {
-              twitter, linkedIn, github
+            firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username, category, skills, social {
+              twitter, linkedIn, github, email
             }
           }
         }
