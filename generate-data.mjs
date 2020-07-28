@@ -35,8 +35,7 @@ fs.readdir(USER_DATA_PATH, (err, files) => {
 			let lastFile = fs.readFileSync(USER_DATA_PATH + orderedContent[1].file)
 
 			// When a user updates their json, check if an id was already assigned, if not, lEAVE IT BE!
-			Object.keys(parsedData).indexOf('id') === -1 ?
-				parsedData.id = (JSON.parse(lastFile.toLocaleString())).id + 1 : null
+			Object.keys(parsedData).indexOf('id') === -1 ? parsedData.id = orderedContent.length : null
 			fs.writeFileSync(USER_DATA_PATH + orderedContent[0].file, JSON.stringify(parsedData))
 		})
 	}
@@ -49,7 +48,7 @@ fs.readdir(USER_DATA_PATH, (err, files) => {
 
 	fs.writeFileSync(`${USER_DATA_PATH}../data.json`, JSON.stringify(allUserData))
 
-	// TODO: Move dats.json to firebase and load from server in Graphql Datalayer
+	// TODO: Move data.json to firebase and load from server in Graphql Datalayer
 	// console.log(allUserData)
 })
 
