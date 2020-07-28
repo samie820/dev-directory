@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col flex-grow work">
         <div class="bg-white work-image p-10 w-full relative">
-            <g-image :src="workImg" :class="['h-full', {'opacity-25 mx-auto p-10 object-contain': !work.projectImageUrl }, {'object-cover': work.projectImageUrl}]"></g-image>
+            <g-image :src="workImg" :class="['h-full w-full', {'opacity-25 mx-auto p-10 object-contain': !work.projectImageUrl }, {'object-cover': work.projectImageUrl}]"></g-image>
             <div class="absolute inset-5 opacity-0 transition-all duration-200 hover:opacity-75 bg-gray-800 flex justify-center items-center z-10 rounded">
                 <p class="text-white text-4xl font-bold uppercase">{{work.projectTitle}}</p>
             </div>
@@ -35,7 +35,7 @@
         },
         computed: {
             workImg() {
-                return this.work.projectImageUrl ? work.projectImageUrl : require("../assets/images/placeholder.svg")
+                return this.work.projectImageUrl ? this.work.projectImageUrl : require("../assets/images/placeholder.svg")
             }
         }
     }

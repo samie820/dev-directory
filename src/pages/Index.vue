@@ -47,7 +47,7 @@
     Users:allUsers {
       edges {
         node {
-          firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username
+          firstName, lastName, currentRole, currentCompany, bio, id, name, isVerified, username, avatar
         }
       }
     }

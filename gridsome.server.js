@@ -15,7 +15,6 @@ module.exports = function (api) {
   api.loadSource(async ({ addCollection, addSchemaResolvers }) => {
     const usersCollection = addCollection('Users')
     const worksCollection = addCollection('Works')
-
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         const user = data[key];
@@ -25,9 +24,11 @@ module.exports = function (api) {
           id: user.id,
           username: user.username,
           name: user.name,
+          avatar: user.avatar,
           location: user.location,
           currentRole: user.currentRole,
           currentCompany: user.currentCompany,
+          portfolio: user.portfolio,
           bio: user.bio,
           isVerified: user.isVerified,
           selectedWorks: user.selectedWorks,
@@ -75,7 +76,7 @@ module.exports = function (api) {
 
     // FIxed user pages 404 issue
     // By generating user pages individually
-    const {data} = await graphql(`
+    const { data } = await graphql(`
     query {
       Users:allUsers {
         edges {
@@ -88,6 +89,8 @@ module.exports = function (api) {
       }
   }
     `)
+
+    console.log(data)
 
     data.Users.edges.forEach(({ node }) => {
       createPage({

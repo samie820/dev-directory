@@ -2,7 +2,7 @@
   <Layout :is-footer-fixed="false">
       <section id="bio" class="bg-gray-200 p-10 md:p-20 lg:px-40">
         <div class="w-full sm:w-2/3 lg:w-1/3 flex flex-col md:flex-row items-center">
-            <avatar-image :image-url="profileImage" class="mx-auto md:mx-px"></avatar-image>
+            <avatar-image :image-url="profileImage" class="mx-auto md:mx-px" :is-verified="$page.user.isVerified"></avatar-image>
             <h2 class="font-display text-2xl flex flex-col sm:ml-4 text-center sm:text-left">
                 <span>{{ $page.user.firstName }}</span>
                 <span>{{ $page.user.lastName }}</span>
@@ -10,6 +10,9 @@
             </h2>
         </div>
         <div class="py-12 text-xl" v-if="$page.user && $page.user.bio">
+            <p class="font-light text-gray-600 mb-4" v-if="$page.user && $page.user.currentRole && $page.user.currentCompany">
+                {{$page.user.currentRole}} <span v-if="$page.user.currentCompany">@ <span class="underline">{{$page.user.currentCompany}}</span></span>
+            </p>
             {{ $page.user.bio }}
             
             <div class="w-full flex flex-row flex-wrap mt-6" v-if="$page.user && $page.user.skills && $page.user.skills.length > 0">
@@ -55,13 +58,16 @@ query($id: ID!) {
   user: users(id: $id) {
     id,
     name,
+    avatar,
     username,
     firstName,
     lastName,
     bio,
+    portfolio,
     currentRole,
     currentCompany,
     location,
+    isVerified,
     social { github, twitter, linkedIn, email },
     selectedWorks {
       projectTitle,
@@ -88,7 +94,7 @@ export default {
     },
     computed: {
         profileImage() {
-             return `https://ui-avatars.com/api/?name=${this.$page.user.firstName}&background=000000&color=fff&size=256&bold=true&rounded=true`;
+             return this.$page.user.avatar ? this.$page.user.avatar : `https://ui-avatars.com/api/?name=${this.$page.user.firstName}&background=000000&color=fff&size=256&bold=true&rounded=true`;
         }
     }
 }

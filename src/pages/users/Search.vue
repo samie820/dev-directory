@@ -12,7 +12,7 @@
     		<div
     			class="bg-gray-200 col-span-2 flex flex-grow flex-col rounded-md search-results p-10 lg:p-12 overflow-y-auto h-128 md:h-auto">
     			<vue-scroll :ops="scrollConfig" class="w-full">
-    				<div class="results grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid gap-10 w-full h-auto pr-5 relative mb-2" v-if="users.length > 0">
+    				<div class="results grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid gap-10 w-full h-auto pr-5 relative mb-2" v-if="users.length > 0">
     					<div class="search-result relative" v-for="edge in users" v-bind:key="edge.node.id">
     						<div class="bg-white p-6 text-black" style="box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);">
     							<h2 class="text-xl text-gray-500">{{ edge.node.firstName }}</h2>
@@ -68,7 +68,7 @@ export default {
 			this.currentCategory = this.capitalize(this.$route.query.category)
 		}
 		const searchTerm = this.$route.query.q;
-		this.filterUsersBySearch(searchTerm);
+		this.filterUsersBySearch(searchTerm, 'All');
 	},
 	data() {
 		return {
@@ -106,7 +106,6 @@ export default {
 				return this.$page.Users.edges || []
 			} else {
 				let users = this.$page.Users.edges
-				console.log(users.filter(x => category.includes(x.node.category)))
 				return users.filter(x => category.includes(x.node.category))
 			}
 		},
@@ -126,18 +125,14 @@ export default {
 			}
 		},
 		filterUsersBySearch(query, category = null) {
-			let users = category ? this.filterUsersByCategory(category) : this.$page.Users.edges || [];
-			if (query === '') {
+			let users = category && category !== 'All' ? this.filterUsersByCategory(category) : this.$page.Users.edges || [];
+			console.log(users)
+			if (!query) {
 				return this.users = users;
 			}
-
-			if (!this.searchHandler) {
-				const search = this.setupSearch(users, ['firstName', 'lastName', 'location', 'currentRole', 'currentCompany'], 'id')
-				const filteredUsers = search.search(query);
-				return this.users = filteredUsers;
-			}
-			const filteredUsers = this.searchHandler.search(query);
-			return this.users = filteredUsers;
+			const search = this.setupSearch(users, ['firstName', 'lastName', 'location', 'currentRole', 'currentCompany'], 'id')
+			const filteredUsers = search.search(query);
+			return this.users = filteredUsers
 		},
 		setupSearch(documents = [], indexes = [], uniqueField) {
 			const search = new JsSearch.Search(['node', uniqueField]);
@@ -157,6 +152,9 @@ export default {
 		},
 		'currentCategory': function(val) {
 			this.filterUsersBySearch(this.query, val)
+		},
+		'$route.query.category': function(val) {
+			this.filterUsersByCategory(this.query, val)
 		}
 	}
 }
@@ -173,7 +171,7 @@ export default {
 }
 
 .results {
-	max-height: calc(100vh - 30rem);
+	max-height: calc(100vh - 60rem);
 
 }
 
@@ -190,5 +188,9 @@ export default {
 	background-color: transparent;
 	background-size: 100% 5em, 100% 5em, 100% 1em, 100% 1em;
 	background-attachment: local, local, scroll, scroll;
+}
+
+.__view{
+	@apply flex;
 }
 </style>
