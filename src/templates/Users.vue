@@ -57,6 +57,7 @@ query($id: ID!) {
     name,
     username,
     firstName,
+    avatar,
     lastName,
     bio,
     currentRole,
@@ -88,7 +89,7 @@ export default {
     },
     computed: {
         profileImage() {
-             return `https://ui-avatars.com/api/?name=${this.$page.user.firstName}&background=000000&color=fff&size=256&bold=true&rounded=true`;
+             return this.$page.user.avatar ? this.$page.user.avatar : `https://ui-avatars.com/api/?name=${this.$page.user.firstName}&background=000000&color=fff&size=256&bold=true`
         }
     }
 }
