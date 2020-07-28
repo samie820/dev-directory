@@ -61,6 +61,7 @@ query($id: ID!) {
     avatar,
     username,
     firstName,
+    avatar,
     lastName,
     bio,
     portfolio,

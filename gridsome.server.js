@@ -23,6 +23,8 @@ module.exports = function (api) {
         usersCollection.addNode({
           id: user.id,
           username: user.username,
+          avatar: user.avatar || '',
+          email: user.email,
           name: user.name,
           avatar: user.avatar,
           location: user.location,
