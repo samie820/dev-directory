@@ -24,8 +24,6 @@
     export default {
         name: 'WorkCard',
         mounted() {
-            console.log('works')
-            console.log(this.work)
         },
         props: {
             work: {
