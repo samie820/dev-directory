@@ -69,9 +69,13 @@ export default {
 		}
 		const searchTerm = this.$route.query.q;
 		this.filterUsersBySearch(searchTerm, 'All');
+		this.$nextTick(() => {
+			this.isMounted = true
+		})
 	},
 	data() {
 		return {
+			isMounted: false,
 			categories: ['All', 'Designers', 'Developers', 'Product Managers'],
 			query: this.$route.query.q || '',
 			currentCategory: 'All',
@@ -126,7 +130,6 @@ export default {
 		},
 		filterUsersBySearch(query, category = null) {
 			let users = category && category !== 'All' ? this.filterUsersByCategory(category) : this.$page.Users.edges || [];
-			console.log(users)
 			if (!query) {
 				return this.users = users;
 			}
@@ -150,11 +153,17 @@ export default {
 		'$route.query.q': function (val) {
 			this.filterUsersBySearch(val, this.currentCategory)
 		},
-		'currentCategory': function(val) {
+		'currentCategory': function(val, oldVal) {
 			this.filterUsersBySearch(this.query, val)
+			if (this.isMounted) {
+				this.$router.push({path: '', query: {category: val}}).catch(err => {})
+			} 
 		},
 		'$route.query.category': function(val) {
-			this.filterUsersByCategory(this.query, val)
+			if (val) {
+				this.currentCategory = this.capitalize(val)
+			}
+			this.filterUsersByCategory(this.currentCategory)
 		}
 	}
 }
