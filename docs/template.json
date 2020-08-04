@@ -1,0 +1,34 @@
+{
+  "username": "<username>",
+  "name": "<full name>",
+  "location": "<where you currently live>",
+  "avatar": "<url to your preferred avatar>",
+  "currentRole": "<current job role>",
+  "currentCompany": "Interswitch Group",
+  "portfolio": "<portfolio site/blog/medium profile>",
+  "bio": "<Convincing description about yourself>",
+  "isVerified": true,
+  "category": "<developer|designer/product manager>",
+  "social": {
+    "twitter": "<optional>",
+    "linkedIn": "<optional>",
+    "github": "<optional>",
+    "email": "<optional>"
+  },
+  "skills": [
+    "TailwindCSS",
+    "React",
+    "Javascript",
+    "VueJS",
+    "Java",
+    "Springboot"
+  ],
+  "selectedWorks": [
+    {
+      "projectTitle": "<Name of the project>",
+      "projectImageUrl": "<feature image of the project>",
+      "projectDescription": "<brief description of the project>",
+      "projectLink": "<link to the project>"
+    }
+  ]
+}
