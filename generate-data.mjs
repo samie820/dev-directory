@@ -7,6 +7,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const USER_DATA_PATH = process.env.USER_DATA_PATH
+const DATA_FILE_PATH = process.env.DATA_FILE_PATH
 let allUserData = {}
 
 fs.readdir(USER_DATA_PATH, (err, files) => {
@@ -46,7 +47,7 @@ fs.readdir(USER_DATA_PATH, (err, files) => {
 		allUserData[parsedData.id] = parsedData
 	})
 
-	fs.writeFileSync(`${USER_DATA_PATH}../data.json`, JSON.stringify(allUserData))
+	fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(allUserData))
 
 	// TODO: Move data.json to firebase and load from server in Graphql Datalayer
 	// console.log(allUserData)

@@ -35,7 +35,7 @@
         </g-link>
       </div>
       <div class="cards mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <user-card v-for="edge in $page.Users.edges.slice($page.Users.edges.length - 4, $page.Users.edges.length)" v-bind:key="edge.node.id" v-bind:user="edge.node" />
+        <user-card v-for="edge in $page.Users.edges.slice($page.Users.edges.length > 6 ? $page.Users.edges.length - 6 : 0, $page.Users.edges.length)" v-bind:key="edge.node.id" v-bind:user="edge.node" />
       </div>
       </div>
     </section>
