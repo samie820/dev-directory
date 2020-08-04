@@ -156,7 +156,7 @@ export default {
 		'currentCategory': function(val, oldVal) {
 			this.filterUsersBySearch(this.query, val)
 			if (this.isMounted) {
-				this.$router.push({path: '', query: {category: val}})
+				this.$router.push({path: '', query: {category: val}}).catch(err => {})
 			} 
 		},
 		'$route.query.category': function(val) {
