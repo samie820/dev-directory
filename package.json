@@ -4,6 +4,8 @@
   "scripts": {
     "prebuild": "node --experimental-modules generate-data.mjs",
     "predevelop": "node --experimental-modules generate-data.mjs",
+    "postbuild": "node --experimental-modules clear-data.mjs",
+    "postdevelop": "node --experimental-modules clear-data.mjs",
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore"
