@@ -1,0 +1,32 @@
+{
+  "username": "devamaz",
+  "name": "Ahmad Abdulaziz",
+  "location": "Abuja, Nigeria",
+  "avatar": "https://i.stack.imgur.com/AaMqD.jpg",
+  "currentRole": "Software Engineer",
+  "currentCompany": "Druve",
+  "portfolio": "https://dev.to/devamaz",
+  "bio": "Experienced Software Engineer, skilled in Node, Javascript, React, PWA, GraphQL, Cascading Style Sheets (CSS), MongoDB, PHP, SQL. I have work with diverse teams to build durable and scalable applications. I am also passionate about community building and love training, mentoring individuals looking to get into software development",
+  "category": "developer",
+  "social": {
+    "twitter": "devamaz",
+    "linkedIn": "devamaz",
+    "github": "devamaz",
+    "email": "ahmad.abdulaziz37@gmail.com"
+  },
+  "skills": ["PHP", "React", "Javascript", "NodeJs", "MongoDB", "SQL"],
+  "selectedWorks": [
+    {
+      "projectTitle": "Druve",
+      "projectImageUrl": "https://snipboard.io/d4MCYG.jpg",
+      "projectDescription": "Build scalable AdTech application that currently serve over 5 thousands users ",
+      "projectLink": "https://druve.com.ng"
+    },
+    {
+      "projectTitle": "Stitch NG",
+      "projectImageUrl": "https://i.snipboard.io/5MA3HZ.jpg",
+      "projectDescription": "Work on the Foremost Nigerian Innovative Fashion-tech and Fashion Design Assistant. Where I also contribute to building various open-source packages like Paystack node wrapper and Adonisjs-queue",
+      "projectLink": "https://stitch.ng"
+    }
+  ]
+}
