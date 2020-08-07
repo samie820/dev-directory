@@ -6,19 +6,19 @@
 
 
 
-This is the official repository for The tech directory, a platform that showcases the profiles of creatives in our ecosystem.
+This is the official repository for The tech directory, a platform that showcases the profiles of creatives (Developers, Designers and Product Managers) in our ecosystem.
 
 # Getting Started
 This process is for somewhat tech savvy individuals, in order to add your profile to the platform you'll need to:
 
--  Create a fork this repo
--  Create a branch
--  In the `/src/data/users/` folder, create a `json` file with your preferred username as teh file name e.g. `samuel.json
+-  Fork this repo
+-  Create a branch e.g `<your-name>-profile`
+-  In the `/src/data/users/` folder, create a `json` file with your preferred username as the file name e.g. `samuel.json
 -  Copy the contents of `/docs/template.json` and paste in your newly created file
--  Fill the content accordingly
+-  Fill the contents accordingly
 -  Commit your changes
--  Push it to the fork of the repo
--  Creat a PR to the `develop` branch on the main repo
+-  Push it to your fork of this repo (from the first step)
+-  Create a PR to the `develop` branch on this repo
 
 
 # CONTRIBUTING
