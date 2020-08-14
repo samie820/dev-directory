@@ -37,6 +37,9 @@
                         <g-image class="h-17 w-17 mt-4 block lg:mt-0" alt="Search Icon"
                             src="~/assets/images/Search.svg" />
                     </g-link>
+                    <a href="https://github.com/samie820/dev-directory" target="__blank" class="ml-6">
+                        <i class="fab fa-github text-lg" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </nav>

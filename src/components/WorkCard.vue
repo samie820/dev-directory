@@ -6,8 +6,8 @@
                 <p class="text-white text-4xl font-bold uppercase">{{work.projectTitle}}</p>
             </div>
         </div>
-        <div class="my-16 pl-10 border-l-8 rounded-md border-gray-500 w-full py-5" v-if="work.projectDescription || work.projectLink">
-            <p class="mb-10" v-if="work.projectDescription">
+        <div class="my-16 pl-10 border-l-8 rounded-md border-gray-500 w-full py-4" v-if="work.projectDescription || work.projectLink">
+            <p class="mb-8" v-if="work.projectDescription">
                 {{work.projectDescription}}
             </p>
             <a :href="work.projectLink" target="__blank" class="text-blue-500" v-if="work.projectLink">

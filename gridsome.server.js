@@ -4,6 +4,22 @@ require("dotenv").config()
 // Get the contents of the data.json
 const DATA_FILE_PATH = process.env.DATA_FILE_PATH
 const data = JSON.parse(fs.readFileSync(DATA_FILE_PATH).toLocaleString())
+
+const capitalize = (string) => {
+  let str = ''
+  let splitStr = string.split(' ')
+  if (splitStr.length < 0) {
+      return string[0].toUpperCase() + string.slice(1)
+  } else {
+      splitStr.forEach((x, index) => {
+          str += x[0].toUpperCase() + x.slice(1)
+          if (index !== 0 || index  !== splitStr.length - 1) {
+              str += ' '
+          }
+      })
+      return str.trimEnd()
+  }
+}
 // console.log(data)
 // Server API makes it possible to hook into various parts of Gridsome
 // on server-side and add custom data to the GraphQL data layer.
@@ -34,7 +50,7 @@ module.exports = function (api) {
           bio: user.bio,
           isVerified: user.isVerified,
           selectedWorks: user.selectedWorks,
-          category: user.category,
+          category: capitalize(user.category),
           social: user.social,
           skills: user.skills
         })
