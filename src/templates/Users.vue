@@ -46,7 +46,7 @@
 
       <section id="works" class="p-10 md:p-20 lg:px-40 bg-gray-200" v-if="$page.user && $page.user.selectedWorks && $page.user.selectedWorks.length > 0">
           <p class="uppercase text-gray-500 ">SELECTED WORKS</p>
-          <div id="all-works" class="flex flex-col my-10">
+          <div id="all-works" class="grid grid-cols-1 lg:grid-cols-2 gap-10 my-10">
               <work-card v-for="work in $page.user.selectedWorks" :work="work" :key="work.id"></work-card>
           </div>
       </section>
