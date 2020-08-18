@@ -15,16 +15,18 @@
     "email": "ahmad.abdulaziz37@gmail.com"
   },
   "skills": ["PHP", "React", "Javascript", "NodeJs", "MongoDB", "SQL"],
-  "selectedWorks": [{
-    "projectTitle": "Druve",
-    "projectImageUrl": "https://snipboard.io/d4MCYG.jpg",
-    "projectDescription": "Build scalable AdTech application that currently serve over 5 thousands users ",
-    "projectLink": "https://druve.com.ng"
-  }, {
-    "projectTitle": "Stitch NG",
-    "projectImageUrl": "https://i.snipboard.io/5MA3HZ.jpg",
-    "projectDescription": "Work on the Foremost Nigerian Innovative Fashion-tech and Fashion Design Assistant. Where I also contribute to building various open-source packages like Paystack node wrapper and Adonisjs-queue",
-    "projectLink": "https://stitch.ng"
-  }],
-  "id": 4
+  "selectedWorks": [
+    {
+      "projectTitle": "Druve",
+      "projectImageUrl": "https://snipboard.io/d4MCYG.jpg",
+      "projectDescription": "Build scalable AdTech application that currently serve over 5 thousands users ",
+      "projectLink": "https://druve.com.ng"
+    },
+    {
+      "projectTitle": "Stitch NG",
+      "projectImageUrl": "https://i.snipboard.io/5MA3HZ.jpg",
+      "projectDescription": "Work on the Foremost Nigerian Innovative Fashion-tech and Fashion Design Assistant. Where I also contribute to building various open-source packages like Paystack node wrapper and Adonisjs-queue",
+      "projectLink": "https://stitch.ng"
+    }
+  ]
 }

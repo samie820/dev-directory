@@ -41,10 +41,10 @@ fs.readdir(USER_DATA_PATH, (err, files) => {
 		})
 	}
 
-	files.forEach(fileName => {
+	files.forEach((fileName, index) => {
 		let data = fs.readFileSync(USER_DATA_PATH + fileName)
 		let parsedData = JSON.parse(data.toLocaleString())
-		allUserData[parsedData.id] = parsedData
+		allUserData[index] = parsedData
 	})
 
 	fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(allUserData))
