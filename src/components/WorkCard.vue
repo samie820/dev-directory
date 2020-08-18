@@ -3,7 +3,7 @@
         <div class="bg-white work-image p-10 w-full relative">
             <g-image :src="workImg" :class="['h-full w-full', {'opacity-25 mx-auto p-10 object-contain': !work.projectImageUrl }, {'object-cover': work.projectImageUrl}]"></g-image>
             <div class="absolute inset-5 opacity-0 transition-all duration-200 hover:opacity-75 bg-gray-800 flex justify-center items-center z-10 rounded">
-                <p class="text-white text-4xl font-bold uppercase">{{work.projectTitle}}</p>
+                <p class="text-white text-3xl font-bold uppercase">{{work.projectTitle}}</p>
             </div>
         </div>
         <div class="my-16 pl-10 border-l-8 rounded-md border-gray-500 w-full py-4" v-if="work.projectDescription || work.projectLink">
