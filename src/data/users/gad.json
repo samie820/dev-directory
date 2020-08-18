@@ -29,5 +29,6 @@
       "projectDescription": "Sky-Gad (sky guide) is a simple React application that consumes the OpenSky API to show major cities and their air traffic including the estimated departure and arrival times of the aircrafts.",
       "projectLink": "https://github.com/gadjacobs/opensky"
     }
-  ]
+  ],
+  "id": 3
 }
