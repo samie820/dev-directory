@@ -15,7 +15,7 @@
     "dotenv": "^8.2.0",
     "gridsome": "^0.7.0",
     "js-search": "^1.4.3",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.2",
     "tailwindcss": "^1.4.4",
     "vuescroll": "^4.15.0"
